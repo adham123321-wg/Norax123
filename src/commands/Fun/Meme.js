@@ -3,7 +3,7 @@ import { SlashCommandBuilder } from 'discord.js';
 export default {
   data: new SlashCommandBuilder()
     .setName('meme')
-    .setDescription('Sends a random meme!'),
+    .setDescription('Sends a meme!'),
 
   category: 'Fun',
 
@@ -13,12 +13,7 @@ export default {
       '😭 Bro is NOT him.',
       '😂 Who let bro cook?!',
       '💀 Ain’t no way 😭',
-      '🗿 Bro entered NPC mode.',
-      '😭 We are NOT surviving this.',
-      '💀 That was NOT in the tutorial.',
-      '😂 What did I just witness?',
-      '😭 Bro really said “watch this.”',
-      '💀 Mission failed successfully.'
+      '🗿 Bro entered NPC mode.'
     ];
 
     await interaction.reply(
