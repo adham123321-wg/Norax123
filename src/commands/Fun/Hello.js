@@ -5,5 +5,5 @@ export default { data: new SlashCommandBuilder ()
 .setName ("hello")
 .setDescription ("training"),
 
-async execute (interaction) { await interaction.reply (${name})},
+async execute (interaction) { await interaction.reply (`${name}`)},
 };
