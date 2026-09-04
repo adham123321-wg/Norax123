@@ -10,7 +10,7 @@ export default {
 
   async execute(interaction) {
     if (interaction.member.roles.cache.some(
-      role => role.name === "staff team"
+      role => role.name === "Staff team"
     )) {
       await interaction.reply({
         content: yes,
