@@ -1,15 +1,17 @@
 import { SlashCommandBuilder } from "discord.js";
 
-export default {
-  data: new SlashCommandBuilder()
-    .setName("userinfo")
-    .setDescription("Shows information about a member"),
+export default { data: new SlashCommandBuilder ()
+.setName ("userinfo")
+.setDescription ("Gets information about a user")
+.addUserOption ( option => option
+.setName ("user")
+.setDescription ("choose the user")
+.setRequired(true)),
 
-  async execute(interaction) {
-    await interaction.reply(
-      `Username: ${interaction.user.username}
-User ID: ${interaction.user.id}
-Account created: ${interaction.user.createdAt}`
-    );
-  }
+async execute (interaction) { const user = interaction.options.getUser ("user");
+await interaction.reply
+( `username: ${user.username }
+userID: ${ user.id }
+Account created ${ user.createdAt });
+},
 };
