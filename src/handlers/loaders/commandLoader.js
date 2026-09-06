@@ -256,10 +256,21 @@ async function registerGlobalCommands(client, clientId, commands, totalSubcomman
     }
 
     logger.info(`Registering ${commandsToRegister.length} global commands...`);
-    await client.rest.put(`/applications/${clientId}/commands`, { body: commandsToRegister });
-    logger.info(`Successfully registered ${commandsToRegister.length} global commands`);
-    logger.info('Global commands may take up to an hour to appear in all servers on first deploy');
-}
+
+const registeredCommands = await client.rest.put(
+    `/applications/${clientId}/commands`,
+    { body: commandsToRegister }
+);
+
+logger.info(`Successfully registered ${registeredCommands.length} global commands`);
+
+logger.info(
+    `Discord registered command names: ${registeredCommands
+        .map(command => command.name)
+        .join(', ')}`
+);
+
+logger.info('Global commands may take up to an hour to appear in all servers');
 
 export async function registerCommands(client, options = {}) {
     const { clientId = null } = options;
