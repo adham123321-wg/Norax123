@@ -321,14 +321,14 @@ class TitanBot extends Client {
       }
     }
   }
-
-  async registerCommands() {
-    try {
-      await registerSlashCommands(this, { clientId: this.config.bot.clientId });
-    } catch (error) {
-      logger.error('Error registering commands:', error);
-    }
+async registerCommands() {
+  try {
+    await registerSlashCommands(this, { clientId: this.config.bot.clientId });
+  } catch (error) {
+    logger.error('Error registering commands:', error);
+    throw error;
   }
+}
 
   async shutdown(reason = 'UNKNOWN') {
     shutdownLog(`Bot is shutting down (${reason})...`);
