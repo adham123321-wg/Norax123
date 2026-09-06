@@ -271,6 +271,7 @@ logger.info(
 );
 
 logger.info('Global commands may take up to an hour to appear in all servers');
+}
 
 export async function registerCommands(client, options = {}) {
     const { clientId = null } = options;
